@@ -58,13 +58,13 @@ void *consumidor(void *arg)
 
 int main(int argc, char *argv[])
 {
-	pthread_t prod, cons, prod2, prod3;
+	pthread_t prod1, prod2, prod3, cons;
 
 	pthread_cond_init(&cond_empty, NULL);
 	pthread_cond_init(&cond_full, NULL);
 	pthread_mutex_init(&mutex, NULL);
 
-	pthread_create(&prod, NULL, (void *)produtor, NULL);
+	pthread_create(&prod1, NULL, (void *)produtor, NULL);
 	pthread_create(&prod2, NULL, (void *)produtor, NULL);
 	pthread_create(&prod3, NULL, (void *)produtor, NULL);
 	pthread_create(&cons, NULL, (void *)consumidor, NULL);
